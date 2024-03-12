@@ -1,0 +1,233 @@
+.pin-container {
+  display: flex;
+  position: relative;
+  top: 100px;
+  left: 20%;
+  /* border: 1px solid black; */
+  width: 1000px;
+  z-index: -1;
+}
+
+.artwork-item img {
+  width: 500px;
+  height: auto;
+}
+
+.pin-title {
+  width: 497px;
+}
+
+.pin-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: sticky;
+  top: 100px;
+  background-color: #ffffff;
+  z-index: 2;
+}
+
+.pin-button .price {
+  font-size: 30px;
+  cursor: context-menu;
+}
+
+.topic {
+  margin: 16px;
+  margin-top: 25px;
+}
+
+.pin-button .save-button {
+  position: relative;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  margin: 0px 25px 0 245px;
+  right: 0;
+  top: 0;
+  padding: 13px;
+  border-radius: 100px;
+  background-color: red;
+  color: white;
+  font-family: "Fredoka", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  cursor: pointer;
+  border: 0;
+}
+
+.title {
+  margin: 16px 0px 16px 16px;
+  font-size: 30px;
+  display: inline-block;
+  word-break: break-all;
+  /* font: 1em sans-serif; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 470px;
+  /* height: 40px; */
+}
+
+.user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 0.1px solid #bdbdbd;
+}
+
+.user .artist {
+  margin: 0 0 0em;
+}
+
+.user .followers {
+  /* margin-top: 10px; */
+  margin: 0;
+  font: 0.8em sans-serif;
+  color: black;
+}
+
+.follow-button {
+  position: relative;
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  margin: 0px 25px 0 227px;
+  right: 0;
+  top: 0;
+  padding: 13px;
+  border-radius: 100px;
+  background-color: white;
+  color: black;
+  font-family: "Fredoka", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  cursor: pointer;
+  border: 0;
+}
+
+.content {
+  border-top: 0.1px solid #bdbdbd;
+  border-bottom: 0.1px solid #bdbdbd;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.text-description {
+  margin: 16px;
+  font-size: 20px;
+}
+
+.description {
+  margin: 16px;
+  margin-left: 50px;
+  font-size: 15px;
+}
+
+.text-comment {
+  margin: 16px;
+  font-size: 20px;
+}
+
+.comment-container {
+  width: 520px;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.comments {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.reply-comment {
+  width: 110px;
+}
+
+.reply-comment .timestamp {
+  font: 0.8em sans-serif;
+  color: black;
+}
+
+.reply-comment .like-comment:active {
+  color: red;
+}
+
+.comment-text {
+  display: inline-block;
+  word-break: break-all;
+  font: 1em sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 300px;
+  height: 40px;
+}
+
+.ur-comment {
+  position: sticky;
+  top: 400px;
+  z-index: 3;
+  background-color: #ffffff;
+  border-top: 1px solid #efefef;
+  /* margin-top: 20px; */
+}
+
+.react {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.react .think {
+  margin: 16px;
+  font-size: 25px;
+}
+
+.react .like {
+  color: black;
+  border: 0;
+  background-color: white;
+  margin-left: 200px;
+}
+
+.like:active {
+  color: red;
+}
+
+.add-comment {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.send-button {
+  color: red;
+  border: 0;
+  background-color: white;
+  margin-left: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.text-other-artworks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: -1;
+}
+
+.other-artworks {
+  position: relative;
+  top: 100px;
+}

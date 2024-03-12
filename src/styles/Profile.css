@@ -1,0 +1,83 @@
+.profile {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 100px;
+}
+
+.user-name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 1000;
+  font-style: normal;
+}
+
+.edit-profile {
+  margin-left: 50px;
+  margin-right: 50px;
+
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 100px;
+  font-size: 20px;
+  border: black;
+  background-color: white;
+  width: 145px;
+}
+
+.edit-profile:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.created {
+  margin: 12.5px;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 100px;
+  font-size: 20px;
+  border: black;
+  background-color: white;
+  width: 100px;
+}
+
+.created:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.saved {
+  margin: 12.5px;
+
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 100px;
+  font-size: 20px;
+  border: black;
+  background-color: white;
+  width: 100px;
+}
+
+.saved:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.avatar {
+  margin: 20px;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+}
