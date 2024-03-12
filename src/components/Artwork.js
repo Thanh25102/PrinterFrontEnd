@@ -30,6 +30,7 @@ const Artwork = () => {
         })();
     }, []);
 
+    const user = useSelector((state) => state.users?.value);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const ITEM_HEIGHT = 48;
     const open = Boolean(anchorEl);
@@ -45,7 +46,6 @@ const Artwork = () => {
         })
     }, [])
 
-    const user = useSelector((state) => state.users?.value);
     const handlePostComment = (content) => {
         if (!user || !user.id) return;
         const comment = {
@@ -96,17 +96,20 @@ const Artwork = () => {
         setAnchorEl(null);
     };
 
-    const handleAddToCart = async (artworkId) => {
+    const handleAddToCart = async (artworkId,created_by) => {
         if (!user || !user.id) {
             handleClickOpen();
             return;
         }
-        const cart = {
-            userId: user.id,
-            artworkId
+        console.log("created_by",created_by)
+        if(user.id !== created_by){
+            const cart = {
+                userId: user.id,
+                artworkId
+            }
+            dispatch(CartsThunk.addCart(cart))
+                .then(() => dispatch(addToCart(thisArtwork)))
         }
-        dispatch(CartsThunk.addCart(cart))
-            .then(() => dispatch(addToCart(thisArtwork)))
     }
 
     const [openDialog, setOpenDialog] = React.useState(false);
@@ -129,17 +132,21 @@ const Artwork = () => {
                 });
         else handleClickOpen()
     }
+
     const [openAlert, setOpenAlert] = useState(false);
+
     const handleClickAlert = () => {
         console.log("alert")
         setOpenAlert(true);
     };
+
     const handleCloseAlert = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
         setOpenAlert(false);
     };
+
     return (
         <>
             <main className="pin-container">
@@ -175,7 +182,7 @@ const Artwork = () => {
                         <div className="pin-button">
                             <LoyaltyIcon
                                 sx={{fontSize: 30, m: 2, cursor: "pointer"}}
-                                onClick={() => handleAddToCart(thisArtwork.id)}
+                                onClick={() => handleAddToCart(thisArtwork.id,thisArtwork.created_by)}
                             />
                             <MoreHorizIcon
                                 sx={{fontSize: 30, m: 2, cursor: "pointer"}}

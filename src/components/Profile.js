@@ -7,36 +7,7 @@ import {ArtworksService} from "../services/ArtworksService";
 import {useSelector} from "react-redux";
 import Snackbar from "@mui/material/Snackbar";
 import {Alert} from "@mui/material";
-
-function stringToColor(string) {
-    let hash = 0;
-    let i;
-
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-        hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = '#';
-
-    for (i = 0; i < 3; i += 1) {
-        const value = (hash >> (i * 8)) & 0xff;
-        color += `00${value.toString(16)}`.slice(-2);
-    }
-    /* eslint-enable no-bitwise */
-
-    return color;
-}
-
-function stringAvatar(name) {
-    return {
-        sx: {
-            bgcolor: stringToColor(name),
-        },
-        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-    };
-}
-
+import {stringAvatar} from "../utils/string";
 
 const Profile = () => {
 
@@ -85,6 +56,7 @@ const Profile = () => {
         <>
             <div className='profile'>
                 <h1 className='user-name'>{user.first_name + " " + user.last_name}</h1>
+
                 <Avatar {...stringAvatar(user?.first_name + " " + user?.last_name)} sx={{width: 52, height: 52}}/>
                 <Link to="/edit-profile">
                     <button className='edit-profile'>Edit Profile</button>
@@ -114,7 +86,7 @@ const Profile = () => {
                                     //     .then(() => dispatch(deleteArtwork(art.id)));
                                 }}/>
                                 </div>
-                                <div className='avatar-user'><Avatar sx={{width: 24, height: 24}}/></div>
+                                <div className='avatar-user'><Avatar {...stringAvatar(user?.first_name + " " + user?.last_name)} sx={{width: 24, height: 24,fontSize:12}}/></div>
                             </div>
                         </div>
                     </Link>

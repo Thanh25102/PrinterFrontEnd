@@ -50,7 +50,7 @@ export default function SignIn() {
             password: data.get('password'),
         });
         const user = {
-            username: data.get('email'),
+            email: data.get('email'),
             password: data.get('password')
         }
         dispatch(UsersThunk.login(user)).then((response) => {

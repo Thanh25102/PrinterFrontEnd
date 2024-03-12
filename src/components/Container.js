@@ -9,6 +9,7 @@ import {ArtworksThunk} from "../features/artworks/ArtworksThunk";
 import {ArtworksService} from "../services/ArtworksService";
 import {Alert, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
+import {stringAvatar} from "../utils/string";
 
 
 const Container = () => {
@@ -96,7 +97,7 @@ const Container = () => {
                                 dispatch(ArtworksThunk.deleteArtwork(art.id))
                                     .then(() => dispatch(deleteArtwork(art.id)));
                             }}/></div>
-                            <div className='avatar-user'><Avatar sx={{width: 24, height: 24}}/></div>
+                            <div className='avatar-user'><Avatar {...stringAvatar(user?.first_name + " " + user?.last_name)} sx={{width: 24, height: 24,fontSize:12}}/></div>
                         </div>
                     </div>
                 </Link>

@@ -1,8 +1,8 @@
 import apiService from "./ApiService";
 
 export const UsersService = {
-    login: async (username, password) => {
-        return apiService.post('users/login', {username, password})
+    login: async (email, password) => {
+        return apiService.post('users/login', {email, password})
     },
     register: async (user) => {
         return apiService.post('users/register', user)

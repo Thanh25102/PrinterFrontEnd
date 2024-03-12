@@ -12,6 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useState} from "react";
+import {UsersService} from "../services/UsersService";
+import {useNavigate} from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -29,14 +32,23 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
+        UsersService.register(user).then(()=>{
+            navigate('/login')
         });
     };
+
+    const [user,setUser] = useState({
+        firstName: '',
+        lastName: '',
+        username:'',
+        email: '',
+        password: ''
+    });
+
 
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -65,6 +77,8 @@ export default function SignUp() {
                                     required
                                     fullWidth
                                     id="firstName"
+                                    value={user.firstName}
+                                    onChange={(e) => setUser({...user,firstName: e.target.value})}
                                     label="First Name"
                                     autoFocus
                                 />
@@ -74,6 +88,8 @@ export default function SignUp() {
                                     required
                                     fullWidth
                                     id="lastName"
+                                    value={user.lastName}
+                                    onChange={(e) => setUser({...user,lastName: e.target.value})}
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
@@ -84,9 +100,23 @@ export default function SignUp() {
                                     required
                                     fullWidth
                                     id="email"
+                                    value={user.email}
+                                    onChange={(e) => setUser({...user,email: e.target.value})}
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="username"
+                                    value={user.username}
+                                    onChange={(e) => setUser({...user,username: e.target.value})}
+                                    label="Username"
+                                    name="username"
+                                    autoComplete="username"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -97,6 +127,8 @@ export default function SignUp() {
                                     label="Password"
                                     type="password"
                                     id="password"
+                                    value={user.password}
+                                    onChange={(e) => setUser({...user,password: e.target.value})}
                                     autoComplete="new-password"
                                 />
                             </Grid>
